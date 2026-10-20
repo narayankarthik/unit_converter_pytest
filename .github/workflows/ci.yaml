@@ -12,14 +12,17 @@ on:
 jobs:
     test:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: ['3.13', '3.14', '3.15']
         steps:
             - name: Checkout Code
               uses: actions/checkout@v7
 
-            - name: Install Python
+            - name: Install Python ${{ matrix.python-version }}
               uses: actions/setup-python@v7
               with:
-                python-version: '3.15'
+                python-version: ${{ matrix.python-version }}
 
             - name: Install dependencies
               run: |
