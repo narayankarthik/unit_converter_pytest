@@ -28,7 +28,7 @@ jobs:
 
             - name: Quick CLE smoke test
               run: |
-                units-converter --help || (echo "CLI missing" && exit 1)
+                units-convert --help || (echo "CLI missing" && exit 1)
 
             - name: Run test
               run: pytest
